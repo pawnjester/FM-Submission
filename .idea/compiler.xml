@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="1.8" />
+    <bytecodeTargetLevel target="1.7">
+      <module name="Fair_Money_Submission.app" target="1.8" />
+      <module name="Fair_Money_Submission.cache" target="1.8" />
+      <module name="Fair_Money_Submission.core" target="1.8" />
+      <module name="Fair_Money_Submission.remote" target="1.8" />
+      <module name="Fair_Money_Submission.ui" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

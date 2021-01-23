@@ -1,2 +1,8 @@
+include ':cache'
+include ':ui'
+include ':remote'
+include ':domain'
+include ':core'
+include ':data'
 include ':app'
 rootProject.name = "Fair Money Submission"

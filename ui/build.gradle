@@ -1,0 +1,108 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    def presentationDependencies = rootProject.ext
+    def testDependencies = rootProject.ext.testDependencies
+
+    implementation(
+            presentationDependencies.appDependencies.daggerHiltAndroid,
+            presentationDependencies.appDependencies.kotlin,
+            presentationDependencies.appDependencies.androidKtx,
+            presentationDependencies.appDependencies.lottie,
+            presentationDependencies.appDependencies.daggerHiltViewModel,
+            presentationDependencies.appDependencies.javax,
+            presentationDependencies.appDependencies.androidXViewModel,
+
+            presentationDependencies.uiDependencies.material,
+            presentationDependencies.uiDependencies.navigationFragment,
+            presentationDependencies.uiDependencies.navigationUI,
+            presentationDependencies.uiDependencies.fragment,
+            presentationDependencies.uiDependencies.recyclerView,
+            presentationDependencies.uiDependencies.jodaTime,
+            presentationDependencies.uiDependencies.constraintLayout,
+            presentationDependencies.uiDependencies.androidLegacy,
+            presentationDependencies.uiDependencies.appCompat,
+            presentationDependencies.uiDependencies.liveData,
+
+            project(":core"),
+            project(":domain"),
+            project(":data"),
+            project(":cache"),
+    )
+
+    kapt presentationDependencies.appDependencies.daggerXcompiler
+    kapt presentationDependencies.appDependencies.daggerCompiler
+
+    androidTestImplementation(
+            presentationDependencies.testDependencies.espresso,
+
+            testDependencies.espressoContrib,
+            testDependencies.fragmentTesting,
+            testDependencies.rules,
+            testDependencies.testRunner,
+            testDependencies.archCoreTest,
+            testDependencies.hiltTesting,
+
+
+    )
+
+    kaptAndroidTest(
+            presentationDependencies.appDependencies.daggerXcompiler,
+            presentationDependencies.appDependencies.daggerCompiler,
+    )
+
+    testImplementation(
+            testDependencies.truth,
+            testDependencies.archCoreTest,
+            testDependencies.mockitoKotlin,
+            testDependencies.coroutinesTest,
+            presentationDependencies.testDependencies.jUnit,
+            presentationDependencies.testDependencies.roboelectric,
+            presentationDependencies.testDependencies.jUnitX,
+            presentationDependencies.appDependencies.coroutines,
+
+
+    )
+}
