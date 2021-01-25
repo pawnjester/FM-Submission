@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface UserRemote {
 
-    fun getUserList() : Flow<List<UserEntity>>
+    suspend fun getUserList() : List<UserEntity>
 
     fun getAUser(id: String) : Flow<UserEntity>
 }

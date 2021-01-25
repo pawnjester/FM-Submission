@@ -27,7 +27,7 @@ class MainViewModel @ViewModelInject constructor(
     private val _user = MutableLiveData<LatestUiState<UserModel>>()
     var userResult: LiveData<LatestUiState<UserModel>> = _user
 
-    var idOfUser: String ? = null
+    var idOfUser: String? = null
 
     fun setUserDetailId(id: String) {
         idOfUser = id
@@ -38,7 +38,7 @@ class MainViewModel @ViewModelInject constructor(
         _users.value = LatestUiState.Loading
         viewModelScope.launch {
             getUserList().map {
-                mapper.mapToModelList(it)
+                mapper.mapToModelList(it.users)
             }.catch {
                 _users.value = LatestUiState.Error("Cannot retrieve users")
             }.collect {

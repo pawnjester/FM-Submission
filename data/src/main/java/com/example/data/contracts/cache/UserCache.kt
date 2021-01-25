@@ -5,5 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface UserCache {
 
-    fun getUserCacheList() : Flow<List<UserEntity>>
+    fun getUserList() : Flow<List<UserEntity>>
+    suspend fun getAUser(id: String) : UserEntity
+    suspend fun saveCacheList(users : List<UserEntity>)
 }

@@ -13,12 +13,20 @@ class UserCacheImpl @Inject constructor(
     private val mapper: UserCacheModelMapper
 ) : UserCache {
 
-    override fun getUserCacheList(): Flow<List<UserEntity>> {
+    override fun getUserList(): Flow<List<UserEntity>> {
         return flow {
             val users = dao.getUsers()
             emit(users.map {
                 mapper.mapToEntity(it)
             })
         }
+    }
+
+    override suspend fun getAUser(id: String): UserEntity {
+        return mapper.mapToEntity(dao.getAUser(id))
+    }
+
+    override suspend fun saveCacheList(users: List<UserEntity>) {
+        dao.saveUser(mapper.mapToModelList(users))
     }
 }

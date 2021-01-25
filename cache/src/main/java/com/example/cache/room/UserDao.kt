@@ -12,9 +12,12 @@ interface UserDao {
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addUser(user: UserCacheModel)
+    fun saveUser(user: List<UserCacheModel>)
 
     @Query("select * from $TABLE_NAME")
     suspend fun getUsers(): List<UserCacheModel>
+
+    @Query("select * from $TABLE_NAME where id = :id")
+    suspend fun getAUser(id: String): UserCacheModel
 
 }

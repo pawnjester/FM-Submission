@@ -3,12 +3,10 @@ package com.example.data.impl
 import com.example.data.contracts.cache.UserCache
 import com.example.data.contracts.remote.UserRemote
 import com.example.data.mappers.UserEntityMapper
+import com.example.domain.model.Result
 import com.example.domain.model.User
 import com.example.domain.repositories.UserRepository
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.emitAll
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
@@ -18,16 +16,17 @@ class UserRepositoryImpl @Inject constructor(
 ) : UserRepository {
 
 
-    override fun getUserList(): Flow<List<User>> {
+    override fun getUserList(): Flow<Result> {
         return flow {
-            emitAll(userRemote.getUserList().map { usersList ->
-//                val users = if (usersList.isEmpty()) {
-//                    userCache.getUserCacheList()
-//                } else {
-                    mapper.mapFromEntityList(usersList)
-
-//                }
-            })
+            getUsersAndCache()
+            emitAll(
+                userCache.getUserList().map { usersList ->
+                    Result(mapper.mapFromEntityList(usersList))
+                }
+            )
+        }.catch { error ->
+            val oldData = userCache.getUserList().first()
+            emit(Result(mapper.mapFromEntityList(oldData), error))
         }
     }
 
@@ -36,6 +35,16 @@ class UserRepositoryImpl @Inject constructor(
             emitAll(userRemote.getAUser(id).map {
                 mapper.mapFromEntity(it)
             })
+        }.catch {
+            val oldData = userCache.getAUser(id)
+            emit(mapper.mapFromEntity(oldData))
+        }
+    }
+
+    private suspend fun getUsersAndCache() {
+        val users = userRemote.getUserList()
+        if (users.isNotEmpty()) {
+            userCache.saveCacheList(users)
         }
     }
 

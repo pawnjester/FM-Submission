@@ -13,15 +13,10 @@ class UserRemoteImpl @Inject constructor(
     private val apiService: ApiService
 ) : UserRemote {
 
-    override fun getUserList(): Flow<List<UserEntity>> {
-        return flow {
-            val apiResponse = apiService.getUsers().results
-            if (apiResponse.isNotEmpty()) {
-                emit(apiResponse.map {
-                    mapper.mapFromModel(it)
-                })
-            }
-
+    override suspend fun getUserList(): List<UserEntity> {
+        val apiResponse = apiService.getUsers().results
+        return apiResponse.map {
+            mapper.mapFromModel(it)
         }
     }
 
