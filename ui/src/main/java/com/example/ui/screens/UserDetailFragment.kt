@@ -11,6 +11,7 @@ import com.example.ui.databinding.FragmentUserDetailBinding
 import com.example.ui.model.UserModel
 import com.example.ui.utils.loadUrl
 import com.example.ui.utils.observe
+import com.example.ui.utils.show
 import com.example.ui.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -71,6 +72,7 @@ class UserDetailFragment : Fragment() {
 
     private fun initializeView(user: UserModel) {
         binding.shimmerFrameLayout.stopShimmer()
+        binding.shimmerFrameLayout.show(false)
         val userDetail = "${user.title.capitalize()}, ${user.lastName} ${user.firstName}"
         binding.userName.text = userDetail
         binding.imgUser.loadUrl(user.picture, false)
