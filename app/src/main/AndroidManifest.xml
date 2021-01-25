@@ -13,6 +13,7 @@
         android:name=".ApplicationClass"
         android:theme="@style/Theme.FairMoneySubmission">
         <activity android:name="com.example.ui.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

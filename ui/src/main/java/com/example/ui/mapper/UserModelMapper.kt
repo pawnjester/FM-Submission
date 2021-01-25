@@ -15,7 +15,8 @@ class UserModelMapper @Inject constructor(
                 domain.lastName,
                 domain.firstName,
                 domain.picture,
-                domain.title
+                domain.title,
+                domain.email
             )
         }
     }
@@ -27,7 +28,8 @@ class UserModelMapper @Inject constructor(
                 model.lastName,
                 model.firstName,
                 model.picture,
-                model.title
+                model.title,
+                model.email
             )
         }
     }

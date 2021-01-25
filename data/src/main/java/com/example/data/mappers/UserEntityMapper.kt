@@ -14,7 +14,8 @@ class UserEntityMapper @Inject constructor() : EntityMapper<UserEntity, User> {
                 entity.lastName,
                 entity.firstName,
                 entity.picture,
-                entity.title
+                entity.title,
+                entity.email
             )
         }
     }
@@ -26,7 +27,8 @@ class UserEntityMapper @Inject constructor() : EntityMapper<UserEntity, User> {
                 domain.lastName,
                 domain.firstName,
                 domain.picture,
-                domain.title
+                domain.title,
+                domain.email
             )
         }
     }

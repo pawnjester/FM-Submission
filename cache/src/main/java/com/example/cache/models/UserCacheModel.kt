@@ -13,7 +13,8 @@ data class UserCacheModel(
     val lastName : String,
     val firstName : String,
     val picture: String,
-    val title: String
+    val title: String,
+    val email: String
 ) {
     companion object {
         const val TABLE_NAME = "user"
