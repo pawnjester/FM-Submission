@@ -1,4 +1,4 @@
-## Fair Money Submission
+## FairMoney Submission
 This app is a simple application that retrieves a list of users from the [Dummy API](https://dummyapi.io/)
 
 ## Built With 🛠
@@ -6,7 +6,6 @@ This app is a simple application that retrieves a list of users from the [Dummy 
 - Android Studio 4.1.1+
 - [Kotlin](https://kotlinlang.org/)
 - [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)
-- [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/)
 - [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/)
 - [Android Architecture Components](https://developer.android.com/topic/libraries/architecture) - Collection of libraries that help you design robust, testable, and maintainable apps.
   - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - Data objects that notify views when the underlying database changes.

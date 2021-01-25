@@ -31,8 +31,6 @@ class HomeFragment : Fragment() {
     @Inject
     lateinit var recipeAdapter: UserAdapter
 
-//    @Inject
-//    lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -80,6 +78,7 @@ class HomeFragment : Fragment() {
                 }
                 is LatestUiState.Error -> {
                     binding.shimmerRecycler.stopShimmer()
+                    binding.shimmerRecycler.show(false)
                     showToast(it.exception)
                 }
             }
