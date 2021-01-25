@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -72,14 +71,15 @@ class HomeFragment : Fragment() {
             when (it) {
 
                 is LatestUiState.Loading -> {
-                    binding.progressBar.show(true)
+                    binding.shimmerRecycler.startShimmer()
                 }
                 is LatestUiState.Success -> {
-                    binding.progressBar.show(false)
+                    binding.shimmerRecycler.stopShimmer()
+                    binding.shimmerRecycler.show(false)
                     recipeAdapter.setUserData(it.users)
                 }
                 is LatestUiState.Error -> {
-                    binding.progressBar.show(false)
+                    binding.shimmerRecycler.stopShimmer()
                     showToast(it.exception)
                 }
             }

@@ -11,5 +11,7 @@ data class UserNetworkModel(
     @SerializedName("picture")
     val picture : String,
     @SerializedName("title")
-    val title : String
+    val title : String,
+    @SerializedName("email")
+    val email : String
 )

@@ -14,7 +14,8 @@ class UserCacheModelMapper @Inject constructor() : CacheModelMapper<UserCacheMod
                 entity.lastName,
                 entity.firstName,
                 entity.picture,
-                entity.title
+                entity.title,
+                entity.email
             )
         }
     }
@@ -26,7 +27,8 @@ class UserCacheModelMapper @Inject constructor() : CacheModelMapper<UserCacheMod
                 model.lastName,
                 model.firstName,
                 model.picture,
-                model.title
+                model.title,
+                model.email
             )
         }
     }

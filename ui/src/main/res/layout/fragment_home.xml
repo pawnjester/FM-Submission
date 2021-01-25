@@ -6,20 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".screens.HomeFragment">
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:shimmer_duration="800">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/loading_recycler_view" />
+
+            <include layout="@layout/loading_recycler_view" />
+
+            <include layout="@layout/loading_recycler_view" />
+
+            <include layout="@layout/loading_recycler_view" />
+
+            <include layout="@layout/loading_recycler_view" />
+
+            <include layout="@layout/loading_recycler_view" />
+
+            <include layout="@layout/loading_recycler_view" />
+
+            <include layout="@layout/loading_recycler_view" />
+
+            <include layout="@layout/loading_recycler_view" />
+
+            <include layout="@layout/loading_recycler_view" />
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_users"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

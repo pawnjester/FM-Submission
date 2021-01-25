@@ -14,7 +14,8 @@ class UserNetworkModelMapper  @Inject constructor(
             model.lastName,
             model.firstName,
             model.picture,
-            model.title
+            model.title,
+            model.email
         )
     }
 }

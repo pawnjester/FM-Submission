@@ -75,6 +75,7 @@ class UserDetailFragment : Fragment() {
         binding.shimmerFrameLayout.show(false)
         val userDetail = "${user.title.capitalize()}, ${user.lastName} ${user.firstName}"
         binding.userName.text = userDetail
+        binding.email.text = "email: ${user.email}"
         binding.imgUser.loadUrl(user.picture, false)
     }
 
