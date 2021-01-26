@@ -49,7 +49,7 @@ class MainViewModel @ViewModelInject constructor(
                         }
                     } else {
                         if (result.users.isEmpty()) {
-                            LatestUiState.Error(error.message ?: "")
+                            LatestUiState.Error("Cannot retrieve users, Please check your internet connection")
                         } else {
                             LatestUiState.Success(mapper.mapToModelList(result.users))
                         }
@@ -71,7 +71,7 @@ class MainViewModel @ViewModelInject constructor(
                 _user.value = LatestUiState.Loading
             }
                 .catch {
-                    _user.value = LatestUiState.Error("Cannot retrieve users")
+                    _user.value = LatestUiState.Error("Cannot retrieve users, Please check your internet connection")
                 }.collect {
                     _user.value = LatestUiState.Success(it)
                 }
