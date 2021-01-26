@@ -45,7 +45,7 @@ class UserDetailFragment : Fragment() {
 
         viewModel.getASingleUser()
 
-        observe(viewModel.userResult, ::observeUser)
+        observe(viewModel.userDetailResult, ::observeUser)
 
         binding.toolbar.setNavigationOnClickListener {
             activity?.onBackPressed()

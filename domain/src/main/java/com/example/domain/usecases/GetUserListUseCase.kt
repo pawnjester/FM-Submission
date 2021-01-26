@@ -8,7 +8,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class GetUserListUseCase @Inject constructor(
+open class GetUserListUseCase @Inject constructor(
     private val repository: UserRepository,
     private val postExecution: PostExecutorThread
 ) : FlowUseCase<Unit, Result>() {

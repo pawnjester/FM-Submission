@@ -87,6 +87,7 @@ dependencies {
             testDependencies.testRunner,
             testDependencies.archCoreTest,
             testDependencies.hiltTesting,
+            testDependencies.truth,
 
 
     )
@@ -101,6 +102,7 @@ dependencies {
             testDependencies.archCoreTest,
             testDependencies.mockitoKotlin,
             testDependencies.coroutinesTest,
+            testDependencies.konveyor,
             presentationDependencies.testDependencies.jUnit,
             presentationDependencies.testDependencies.roboelectric,
             presentationDependencies.testDependencies.jUnitX,

@@ -39,6 +39,7 @@ ext {
     okHttpVersion = "4.9.0"
     coilVersion = "1.1.1"
     shimmerVersion = "0.5.0"
+    konveyorVersion = "1.0.3"
 
 
     roomDependencies = [
@@ -97,6 +98,7 @@ ext {
             rules           : "androidx.test:rules:${rules}",
             fragmentTesting : "androidx.fragment:fragment-testing:${fragmentVersion}",
             hiltTesting     : "com.google.dagger:hilt-android-testing:${daggerCompilerVersion}",
-            mockitoKotlin   : "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoVersion}"
+            mockitoKotlin   : "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoVersion}",
+            konveyor   : "com.github.vacxe:konveyor:${konveyorVersion}"
     ]
 }
